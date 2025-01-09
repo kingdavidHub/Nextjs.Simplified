@@ -1,3 +1,8 @@
-export default function HomePage() {
-  return <h1>This is my Next.js app</h1>
+const Home = () => {
+  return (
+    <div>
+      <h1>Home</h1>
+    </div>
+  )
 }
+export default Home
