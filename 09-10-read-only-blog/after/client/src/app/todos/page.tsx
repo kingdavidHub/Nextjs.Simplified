@@ -4,12 +4,7 @@ import { TodoItem } from "@/components/TodoItem";
 import { TodoProps } from "@/types";
 import { Suspense } from "react";
 
-
-
-
-const Todo = async () => {
-  const todos: TodoProps[] = await getTodos();
-
+const Todo = () => {
   return (
     <div>
       <h1 className="page-title">Todos</h1>
@@ -23,12 +18,15 @@ const Todo = async () => {
             </SkeletonList>
           }
         >
-          {todos.map((todo) => (
-            <TodoItem key={todo.id} {...todo} />
-          ))}
+          <TodoList />
         </Suspense>
       </ul>
     </div>
   );
 };
 export default Todo;
+
+async function TodoList() {
+  const todos: TodoProps[] = await getTodos();
+  return todos.map((todo) => <TodoItem key={todo.id} {...todo} />);
+}
