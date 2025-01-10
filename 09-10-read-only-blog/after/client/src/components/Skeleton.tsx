@@ -35,3 +35,13 @@ export function SkeletonList({ amount, children }: {
     </>
   )
 }
+
+export function SimpleSkeletonText({children }: {
+  children: React.ReactNode;
+}) {
+  return (
+    <Suspense fallback={<Skeleton short inline />}>
+      {children}
+    </Suspense>
+  )
+}

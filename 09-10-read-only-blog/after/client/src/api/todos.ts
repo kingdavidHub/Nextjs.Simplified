@@ -8,3 +8,5 @@ export const getTodos = async (): Promise<TodoProps[]> => {
     throw new Error("Failed to fetch todos");
   }
 };
+
+

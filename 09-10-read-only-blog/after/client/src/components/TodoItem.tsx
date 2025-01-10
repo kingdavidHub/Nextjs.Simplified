@@ -1,9 +1,8 @@
+import { TodoProps } from "@/types";
+
 export function TodoItem({
   completed,
   title,
-}: {
-  completed: boolean;
-  title: string;
-}) {
+}: TodoProps) {
   return <li className={completed ? "strike-through" : undefined}>{title}</li>;
 }
