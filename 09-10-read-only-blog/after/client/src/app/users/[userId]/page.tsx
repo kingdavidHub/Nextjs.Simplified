@@ -6,7 +6,7 @@ import {
   SkeletonList,
 } from "@/components/Skeleton";
 import { TodoItem } from "@/components/TodoItem";
-import { TodoProps, UserPostsProps, UserProps } from "@/types";
+import { TodoProps, PostProps, UserProps } from "@/types";
 import { Suspense } from "react";
 
 const UsersPage = async ({
@@ -102,15 +102,14 @@ async function UserInfo({ userId }: { userId: string }) {
   );
 }
 
-async function UserPosts({userId}: { userId: string }) {
-  const posts: UserPostsProps[] = await getUserPosts(userId);
+async function UserPosts({ userId }: { userId: string }) {
+  const posts: PostProps[] = await getUserPosts(userId);
   return posts.map((post) => <PostCard key={post.id} {...post} />);
 }
 
-
-async function UserTodos({userId}: { userId: string }) {
+async function UserTodos({ userId }: { userId: string }) {
   const todos: TodoProps[] = await getUserTodos(userId);
-  return todos.map((todo) => <TodoItem key={todo.id} {...todo} />)
+  return todos.map((todo) => <TodoItem key={todo.id} {...todo} />);
 }
 
 export default UsersPage;

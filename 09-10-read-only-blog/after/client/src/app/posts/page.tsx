@@ -1,8 +1,20 @@
-const page = () => {
+import { getPosts } from "@/api/posts";
+import { PostCard } from "@/components/PostCard";
+import { PostProps } from "@/types";
+
+const page = async () => {
+  const posts: PostProps[] = await getPosts();
+
   return (
-    <div>
-      <h1>Posts</h1>
-    </div>
-  )
-}
-export default page
+    <>
+      <h1 className="page-title">Posts</h1>
+
+      <div className="card-grid">
+        {posts.map((post) => (
+          <PostCard key={post.id} {...post} />
+        ))}
+      </div>
+    </>
+  );
+};
+export default page;

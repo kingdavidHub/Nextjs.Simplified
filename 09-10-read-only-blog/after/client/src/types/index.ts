@@ -17,17 +17,25 @@ export interface UserProps {
     suite: string;
     city: string;
     zipcode: string;
-  }
+  };
   company: {
     name: string;
     catchPhrase: string;
     bs: string;
-  }
+  };
 }
 
-export interface UserPostsProps {
+export interface PostProps {
   userId: number;
   id: number;
   title: string;
+  body: string;
+}
+
+export interface CommentProps {
+  postId: number;
+  id: number;
+  name: string;
+  email: string;
   body: string;
 }
